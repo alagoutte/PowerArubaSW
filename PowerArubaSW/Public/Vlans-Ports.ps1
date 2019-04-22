@@ -141,6 +141,7 @@ function Set-ArubaSWVlansPorts {
         (Re)configure vlan id 23 on port id 8 with mode tagged
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, ParameterSetName = "id")]
         [int]$vlan_id,
@@ -208,6 +209,7 @@ function Remove-ArubaSWVlansPorts {
         Remove vlan id 85 on port 8 with no confirmation
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, ParameterSetName = "id")]
         [int]$vlan_id,

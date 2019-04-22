@@ -129,6 +129,7 @@ function Set-ArubaSWPort {
         Configure port 3 to Mode 100 HDX
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, ParameterSetName = "port_id")]
         [string]$port_id,

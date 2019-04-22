@@ -58,6 +58,7 @@ function Set-ArubaSWRestSessionTimeout {
         This function allow you to set idle time (in seconds) before being disconnected with the parameter timeout.
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, Position = 1)]
         [ValidateRange(120, 7200)]

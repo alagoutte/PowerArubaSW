@@ -77,6 +77,7 @@ function Set-ArubaSWPoE {
 
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, ParameterSetName = "port_id")]
         [string]$port_id,

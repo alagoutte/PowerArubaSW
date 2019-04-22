@@ -77,6 +77,7 @@ function Set-ArubaSWLed {
         Enable Led Locator on member stack 2 (for stack unit)
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true)]
         [ValidateSet("On", "Off", "Blink")]

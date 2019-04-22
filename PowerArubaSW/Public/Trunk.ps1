@@ -118,6 +118,7 @@ function Remove-ArubaSWTrunk {
         Remove ports 3 and 5 in trunk group 6 without confirm
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, Position = 1)]
         [string]$trunk_group,

@@ -58,6 +58,7 @@ function Set-ArubaSWSTP {
         Set the spanning-tree protocol off, the priority to 4 and the mode to RPVST
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, Position = 1)]
         [switch]$enable,
@@ -190,6 +191,7 @@ function Set-ArubaSWSTPPort {
         Configure the port 4 and set the priority 6, enable admin edge, and disable bpdu protection, bpdu filter and root guard.
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, ParameterSetName = "port_id")]
         [string]$port,

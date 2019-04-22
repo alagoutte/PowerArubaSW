@@ -53,6 +53,7 @@ function Set-ArubaSWSystem {
 
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter(Mandatory = $false)]
         [String]$name,

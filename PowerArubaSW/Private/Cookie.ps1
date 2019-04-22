@@ -6,6 +6,7 @@
 
 function Set-Cookie {
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true)]
         [string]$name,

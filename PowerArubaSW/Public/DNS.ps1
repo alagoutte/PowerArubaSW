@@ -63,6 +63,7 @@ function Set-ArubaSWDns {
         This set DNS mode to manual with domain name to example.org and example.net
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true)]
         [ValidateSet ("DHCP", "Manual")]
@@ -152,6 +153,7 @@ function Remove-ArubaSWDns {
         Remove the ip of server 1 and server 2, and all the domain names
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter(Mandatory = $false)]
         [switch]$noconfirm

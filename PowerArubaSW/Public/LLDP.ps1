@@ -87,6 +87,7 @@ function Set-ArubaSWLLDPGlobalStatus {
         Set LLDP disable and configure holdtime to 10 and faststart to 1
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $false)]
         [switch]$enable,

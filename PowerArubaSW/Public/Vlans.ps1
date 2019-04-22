@@ -165,6 +165,7 @@ function Set-ArubaSWVlans {
 
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, ParameterSetName = "id")]
         [int]$id,
@@ -270,6 +271,7 @@ function Remove-ArubaSWVlans {
         Remove vlan id 85 with no confirmation
     #>
 
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions","")]
     Param(
         [Parameter (Mandatory = $true, ParameterSetName = "id")]
         [int]$id,
