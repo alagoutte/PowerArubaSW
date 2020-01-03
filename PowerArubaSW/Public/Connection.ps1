@@ -78,7 +78,7 @@ function Connect-ArubaSW {
         [ValidateRange(1, 65535)]
         [int]$port,
         [Parameter(Mandatory = $false)]
-        [boolean]$DefaultConnection=$true
+        [boolean]$DefaultConnection = $true
     )
 
     Begin {
@@ -86,7 +86,8 @@ function Connect-ArubaSW {
 
     Process {
 
-        $connection = @{server = ""; session = ""; cookie = ""; httpOnly = $false; port = ""; invokeParams = ""; switch_type = "" }
+        $version = @{min = ""; cur = ""; max = "" }
+        $connection = @{server = ""; session = ""; cookie = ""; httpOnly = $false; port = ""; invokeParams = ""; switch_type = "" ; version = $version }
 
         #If there is a password (and a user), create a credentials
         if ($Password) {
@@ -157,6 +158,13 @@ function Connect-ArubaSW {
 
         $switchstatus = Get-ArubaSWSystemStatusSwitch -connection $connection
         $connection.switch_type = $switchstatus.switch_type
+        $restversion = Get-ArubaSWRestversion
+        #Remove v and .x (.0, 1)
+        $vers = $restversion.version -replace "v" -replace ".0" -replace ".1"
+
+        $connection.version.min = ($vers | Measure-Object -Minimum).Minimum
+        $connection.version.max = ($vers | Measure-Object -Maximum).Maximum
+        $connection.version.cur = "4"
 
         if (-not $noverbose) {
             $switchsystem = Get-ArubaSWSystem -connection $connection
@@ -212,9 +220,9 @@ function Disconnect-ArubaSW {
     Param(
         [Parameter(Mandatory = $false)]
         [switch]$noconfirm,
-        [Parameter (Mandatory=$False)]
+        [Parameter (Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
-        [PSObject]$connection=$DefaultArubaSWConnection
+        [PSObject]$connection = $DefaultArubaSWConnection
     )
 
     Begin {
